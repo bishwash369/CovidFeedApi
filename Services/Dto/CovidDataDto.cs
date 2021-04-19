@@ -8,8 +8,8 @@ namespace FeedAPI.Services.Dto
     public class CovidDataDto
     {
         public string Country { get; set; }
-        public double Latiude { get; set; }
-        public double Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
         public string Date { get; set; }
         public Province Provinces { get; set; }
 
@@ -18,9 +18,9 @@ namespace FeedAPI.Services.Dto
     public class Province
     {
         public string Country { get; set; }
-        public int Confirmed { get; set; }
-        public int Recovered { get; set; }
-        public int Deaths { get; set; }
-        public int Active { get; set; }
+        public string Confirmed { get; set; }
+        public string Recovered { get; set; }
+        public string Deaths { get; set; }
+        public string Active { get; set; }
     }
 }
