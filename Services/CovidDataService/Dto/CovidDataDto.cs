@@ -17,7 +17,7 @@ namespace FeedAPI.Services.Dto
 
     public class Province
     {
-        public string Country { get; set; }
+        public string Name { get; set; }
         public string Confirmed { get; set; }
         public string Recovered { get; set; }
         public string Deaths { get; set; }

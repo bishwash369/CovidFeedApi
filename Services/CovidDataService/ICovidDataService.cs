@@ -1,10 +1,10 @@
-﻿using FeedAPI.Services.Dto;
+﻿using FeedAPI.Services.CovidDataService.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FeedAPI.Services
+namespace FeedAPI.Services.CovidDataService
 {
     public interface ICovidDataService
     {

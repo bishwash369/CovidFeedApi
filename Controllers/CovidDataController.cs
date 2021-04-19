@@ -1,4 +1,5 @@
-﻿using FeedAPI.Services;
+﻿using FeedAPI.Repositories.CovidRepository;
+using FeedAPI.Services.CovidDataService;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,20 @@ namespace FeedAPI.Controllers
     public class CovidDataController: ControllerBase
     {
         public readonly ICovidDataService _service;
-        public CovidDataController(ICovidDataService service)
+        public readonly ICovidDataRepository _repo;
+        public CovidDataController(ICovidDataService service, ICovidDataRepository repo)
         {
             _service = service;
+            _repo = repo;
         }
 
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetAll()
+        {
+            var data = _repo.GetAll();
+            return Ok(data);
+        }
 
 
         [HttpGet("[action]")]

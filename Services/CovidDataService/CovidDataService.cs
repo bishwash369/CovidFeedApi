@@ -1,4 +1,5 @@
 ﻿using FeedAPI.Helper;
+using FeedAPI.Services.CovidDataService.Dto;
 using FeedAPI.Services.Dto;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -9,7 +10,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace FeedAPI.Services
+namespace FeedAPI.Services.CovidDataService
 {
     public class CovidDataService: ICovidDataService
     {
@@ -25,9 +26,9 @@ namespace FeedAPI.Services
             RapidHost = configuration.GetValue<string>("RapidHost");
         }
 
-        public async Task<List<CovidDataDto>> DailyReportByCountry(string country)
+        public async Task<List<CovidDataDto>> DailyReportByCountry(string countryName)
         {
-            var countryToCamel = System.Text.Json.JsonNamingPolicy.CamelCase.ConvertName(country);
+            var countryToCamel = System.Text.Json.JsonNamingPolicy.CamelCase.ConvertName(countryName);
             var result = new List<CovidDataDto>();
             var today = dates.Now.ToString("yyyy-MM-dd");
             string urlData = $"{countryToCamel}?date={today}";
@@ -66,7 +67,7 @@ namespace FeedAPI.Services
                     Longitude = longiude,
                     Provinces = new Province()
                     {
-                        Country = nation,
+                        Name = nation,
                         Confirmed = confirmed,
                         Recovered = recovered,
                         Deaths = deaths,
@@ -117,7 +118,7 @@ namespace FeedAPI.Services
                     Longitude = longiude,
                     Provinces = new Province()
                     {
-                        Country = nation,
+                        Name = nation,
                         Confirmed = confirmed,
                         Recovered = recovered,
                         Deaths = deaths,
