@@ -1,4 +1,4 @@
-﻿using FeedAPI.Services.CovidDataService.Dto;
+﻿using FeedAPI.Services.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;

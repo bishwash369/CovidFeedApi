@@ -1,5 +1,4 @@
 ﻿using FeedAPI.Helper;
-using FeedAPI.Services.CovidDataService.Dto;
 using FeedAPI.Services.Dto;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
